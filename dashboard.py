@@ -18,15 +18,47 @@ st.set_page_config(page_title="Retail Analytics Dashboard", layout="wide")
 # ================================
 # ✅ LOAD DATA ONLY ONCE (CACHED)
 # ================================
+
+# @st.cache_data
+# def load_data():
+#     df = pd.read_csv("data/cleaned_data.csv")
+#     rfm = pd.read_csv("data/rfm_data.csv")
+#     raw_df = pd.read_csv("data/raw_data.csv")
+
+#     df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"])
+
+#     # Category function inside cache
+#     def get_category(desc):
+#         desc = str(desc).upper()
+#         if "SET" in desc: return "Sets"
+#         elif "BAG" in desc: return "Bags & Packaging"
+#         elif "BOX" in desc: return "Storage"
+#         elif "HEART" in desc: return "Home Decor"
+#         elif "LIGHT" in desc: return "Lighting"
+#         elif "CAKE" in desc: return "Kitchenware"
+#         elif "TOY" in desc: return "Toys & Games"
+#         elif "PARTY" in desc: return "Party Supplies"
+#         elif "PAPER" in desc: return "Craft Supplies"
+#         else: return "Other"
+
+#     df["Category"] = df["Description"].apply(get_category)
+
+#     return df, rfm, raw_df
+
 @st.cache_data
 def load_data():
-    df = pd.read_csv("data/cleaned_data.csv")
-    rfm = pd.read_csv("data/rfm_data.csv")
-    raw_df = pd.read_csv("data/raw_data.csv")
+    
+    cleaned_url = "https://drive.google.com/uc?id=1gEBu_8uOVX8cvPcl_db62ndJEc_kpyHI"
+    rfm_url = "https://drive.google.com/uc?id=1R3WhdA5X-us6Nwl1mdxug0rNW1tAlDQ7"
+    raw_url = "https://drive.google.com/uc?id=1fhdtMPD7bo1KwlHgmTRR2UmEbp1Q-38h"
+
+    df = pd.read_csv(cleaned_url)
+    rfm = pd.read_csv(rfm_url)
+    raw_df = pd.read_csv(raw_url)
 
     df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"])
 
-    # Category function inside cache
+    # Category
     def get_category(desc):
         desc = str(desc).upper()
         if "SET" in desc: return "Sets"
