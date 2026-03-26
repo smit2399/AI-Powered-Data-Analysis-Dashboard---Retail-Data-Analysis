@@ -54,23 +54,6 @@ This project provides insights into:
 
 ---
 
-## 📂 Project Structure
-
-retail-dashboard/
-│
-├── app.py
-├── requirements.txt
-├── data/
-│   ├── cleaned_data.csv
-│   ├── rfm_data.csv
-│   └── raw_data.csv
-│
-├── notebooks/
-│   ├── retail_data_analysis.ipynb
-│   └── RFM_analysis.ipynb
-
----
-
 ## ⚙️ Tech Stack
 - Python
 - Pandas / NumPy → Data processing
@@ -120,7 +103,7 @@ The app is deployed using Streamlit Cloud.
 
 ### 🔗 Live Demo
 
-👉 Add your deployed app link here
+👉 [Add your deployed app link here](https://ai-powered-data-analysis-dashboard---retail-data-analysis.streamlit.app/)
 
 ---
 
